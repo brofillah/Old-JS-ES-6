@@ -43,35 +43,52 @@
 // sayLocation('London')
 //====================== END FUNCTION ===============================
 
-// OLD JS
+// // OLD JS
 
-var user = {
-    name: "Farhan",
-    age: 19,
-    sayName: function(){
-        console.log("My name is " + this.name)        
-        var that = this
-        var fullName = function(){
-            console.log("My name is " + that.name + " and my age is " + that.age);
-        }
-        fullName()
-    }
+// var user = {
+//     name: "Farhan",
+//     age: 19,
+//     sayName: function(){
+//         console.log("My name is " + this.name)        
+//         var that = this
+//         var fullName = function(){
+//             console.log("My name is " + that.name + " and my age is " + that.age);
+//         }
+//         fullName()
+//     }
+// }
+
+// user.sayName()
+
+// // ES 6
+
+// const bio = {
+//     name: "Masfar",
+//     age: 19,
+//     sayName: function(){
+//         console.log(`My name is ${this.name}`);
+//         const fullName = () => {
+//             console.log(`My name is ${this.name} and my age is ${this.age}`);
+//         }
+//         fullName()
+//     }
+// }
+
+// bio.sayName()
+
+// ======================THIS COMPONENT IN FUNCTION INDEX OBJECT===============================
+
+//OLD JS
+function multiply(x, y){
+    var a = x || 1
+    var b = y || 1
+    console.log(a * b);
 }
-
-user.sayName()
+multiply(100, 2)
 
 // ES 6
-
-const bio = {
-    name: "Masfar",
-    age: 19,
-    sayName: function(){
-        console.log(`My name is ${this.name}`);
-        const fullName = () => {
-            console.log(`My name is ${this.name} and my age is ${this.age}`);
-        }
-        fullName()
-    }
+const add = (c = 1, d = 2) => {
+    console.log(c + d);
 }
 
-bio.sayName()
+add()
