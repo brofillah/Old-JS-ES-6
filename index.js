@@ -112,55 +112,102 @@
 // const filterList = shoppingList.filter(item => item === "Eggs") //filtering
 // console.log(filterList);
 
-//============================Pengolahan Array====================================
+//============================/Pengolahan Array====================================
 
-//OLD JS
-    function Person(name, age, hairColor){
-        this.name = name
-        this.age  = age
-        this.hairColor = hairColor
-    }
 
-    Person.prototype.sayName = function(){
-        console.log(`My name is ${this.name}`)
-    };
+// ======================== CLASS with extends Class ================================
+// //OLD JS
+//     function Person(name, age, hairColor){
+//         this.name = name
+//         this.age  = age
+//         this.hairColor = hairColor
+//     }
 
-    function Farhan(ocupation, hobbys, name, age, hairColor){
-        Person.call(this, name, age, hairColor)
-        this.ocupation = ocupation
-        this.hobbys = hobbys
-    }
+//     Person.prototype.sayName = function(){
+//         console.log(`My name is ${this.name}`)
+//     };
 
-    Farhan.prototype = Object.create(Person.prototype)
+//     function Farhan(ocupation, hobbys, name, age, hairColor){
+//         Person.call(this, name, age, hairColor)
+//         this.ocupation = ocupation
+//         this.hobbys = hobbys
+//     }
 
-    const person = new Farhan('Dev', 'Motorcycle', 'Farhan', 19, 'Black')
+//     Farhan.prototype = Object.create(Person.prototype)
 
-    //var Farhan = new Person('Farhan', 19, 'Black')
-    person.sayName()
+//     const person = new Farhan('Dev', 'Motorcycle', 'Farhan', 19, 'Black')
 
-//ES 6
+//     //var Farhan = new Person('Farhan', 19, 'Black')
+//     person.sayName()
 
-class ShoppingList {
-    constructor(items, nr){
-        this.items = items
-        this.nr = nr
-    }
+// //ES 6
 
-    sayList(){
-        console.log(this.items);
-    }
-}
+// class ShoppingList {
+//     constructor(items, nr){
+//         this.items = items
+//         this.nr = nr
+//     }
 
-class Product extends ShoppingList {
-    constructor(items, nr, ammount, cost){
-        super(items, nr)
-        this.ammount = ammount
-        this.cost = cost
-    }
-}
+//     sayList(){
+//         console.log(this.items);
+//     }
+// }
 
-const product = new Product(['Redbull, chocolate, candy'], 3, 2, 20) //panggil extends
-product.sayList() //panggil extends
+// class Product extends ShoppingList {
+//     constructor(items, nr, ammount, cost){
+//         super(items, nr)
+//         this.ammount = ammount
+//         this.cost = cost
+//     }
+// }
+
+// const product = new Product(['Redbull, chocolate, candy'], 3, 2, 20) //panggil extends
+// product.sayList() //panggil extends
 
 // const myList = new ShoppingList(['Milk, choco, redbull'], 3) //panggil 1 class
 // myList.sayList() //panggil 1 class
+
+// ======================== /CLASS with extends Class ================================
+
+// OLD JS
+// console.log('start');
+
+// function getData(data, callback){
+//     setTimeout(() => {
+//         console.log('reading from the database');
+//         callback({data: data})
+//     }, 2000)
+// }
+
+// getData(5, function(data){
+//     console.log(data);
+// })
+// console.log('finish');
+
+//ES6
+
+//resolve
+// const prom = new Promise((resolve, reject) => {
+//     //HERE is async
+//     setTimeout(() => {
+//         resolve({user: 'Farhan', pass: '321879jdkajk'})
+//     }, 2000)
+// })
+
+// prom.then(data => {
+//     console.log(data);
+// })
+
+//reject
+const prom = new Promise((resolve, reject) => {
+    //HERE is async
+    setTimeout(() => {
+        reject(new Error("something went wrong"))
+    }, 2000)
+})
+
+prom
+    .then(data => {
+        console.log(data);
+    })
+    .catch(err => console.log(err))
