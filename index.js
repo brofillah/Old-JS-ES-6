@@ -76,19 +76,38 @@
 
 // bio.sayName()
 
-// ======================THIS COMPONENT IN FUNCTION INDEX OBJECT===============================
+// ====================== /THIS COMPONENT IN FUNCTION INDEX OBJECT===============================
 
-//OLD JS
-function multiply(x, y){
-    var a = x || 1
-    var b = y || 1
-    console.log(a * b);
-}
-multiply(100, 2)
+// //OLD JS
+// function multiply(x, y){
+//     var a = x || 1
+//     var b = y || 1
+//     console.log(a * b);
+// }
+// multiply(100, 2)
 
-// ES 6
-const add = (c = 1, d = 2) => {
-    console.log(c + d);
-}
+// // ES 6
+// const add = (c = 1, d = 2) => {
+//     console.log(c + d);
+// }
 
-add()
+// add()
+
+// ===========================/Function Parameter====================================
+
+// ES6
+const shoppingList = ['Milk', 'Cow', 'Eggs', 'Bananas', 'Choco']
+
+//Foreach
+shoppingList.forEach((element, index) => {
+    console.log(`Index of ${index} is ${element} so nice`);
+    
+});
+
+//Map 
+const newList = shoppingList.map(item => item + "new") //untuk menambahkan kata new di setiap akhir kata index array
+console.log(newList);
+
+//Filter
+const filterList = shoppingList.filter(item => item === "Eggs") //filtering
+console.log(filterList);
